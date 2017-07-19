@@ -1,0 +1,21 @@
+{
+  "name": "zacksleo/yii2-api-debug-panel",
+  "description": "yii2 api debug panel",
+  "type": "yii2-extension",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "zacksleo",
+      "email": "zacksleo@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "yiisoft/yii2-debug": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "zacksleo\\yii2\\debug\\": "src"
+    }
+  }
+}
