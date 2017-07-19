@@ -21,7 +21,7 @@ class ApiPanel extends Panel
      */
     public function getSummary()
     {
-        return Yii::$app->view->render('@zacksleo/yii2-api-debug-panel/src/views/summary', ['panel' => $this]);
+        return Yii::$app->view->render('@vendor/zacksleo/yii2-api-debug-panel/src/views/summary', ['panel' => $this]);
     }
 
     /**
@@ -29,7 +29,7 @@ class ApiPanel extends Panel
      */
     public function getDetail()
     {
-        return Yii::$app->view->render('@zacksleo/yii2-api-debug-panel/src/views/detail', ['panel' => $this]);
+        return Yii::$app->view->render('@vendor/zacksleo/yii2-api-debug-panel/src/views/detail', ['panel' => $this]);
     }
 
     /**
