@@ -11,11 +11,13 @@
   ],
   "minimum-stability": "stable",
   "require": {
-    "yiisoft/yii2-debug": "*"
+    "yiisoft/yii2-debug": "*",
+    "phpunit/phpunit": "4.8.34"
   },
   "autoload": {
     "psr-4": {
-      "zacksleo\\yii2\\debug\\": "src"
+      "zacksleo\\yii2\\debug\\": "src",
+      "zacksleo\\yii2\\debug\\tests\\": "tests"
     }
   }
 }
