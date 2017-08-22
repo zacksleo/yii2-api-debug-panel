@@ -20,7 +20,8 @@ install:
   - travis_retry composer self-update
   - composer config -g github-oauth.github.com caf16441da5ba578b34a765e67e3bf2ad1941389
   - travis_retry composer install --prefer-dist --no-interaction
-  - travis_retry mysql -e 'CREATE DATABASE test;'
+  - travis_retry mkdir ./vendor/bin/assets
+  - travis_retry chmod -R 777 ./vendor/bin/assets
 
 before_script:
   - travis_retry composer self-update
