@@ -15,6 +15,7 @@ use yii\base\InvalidConfigException;
 use yii\debug\Panel;
 use yii;
 use yii\helpers\Url;
+use yii\log\Logger;
 use zacksleo\yii2\debug\panels\ApiPanel;
 
 class TestController extends \yii\base\Controller
@@ -25,10 +26,14 @@ class ApiPanelTest extends TestCase
 {
     public $id;
 
-    public function setUp()
+    public function testSave()
     {
-        parent::setUp();
-        $this->mockWebApplication();
+        Yii::$app->requestedAction = new InlineAction('test', new TestController('testController', \Yii::$app), 'test');
+        $panel = $this->getPanel('api-debug');
+        $reflection = new \ReflectionClass($panel);
+        Yii::$app->requestedParams = ['panel'=>'api','headers'=>['cookie'=>'111']];
+        $method = $reflection->getMethod('save');
+        $this->assertTrue(200 == $method->invoke($panel)['statusCode']);
     }
 
     public function testGetName()
@@ -44,21 +49,14 @@ class ApiPanelTest extends TestCase
 
     public function testGetSummary()
     {
-       // \Yii::$app->requestedAction = new InlineAction('test', new TestController('testController', \Yii::$app), 'test');
+        \Yii::$app->requestedAction = new InlineAction('test', new TestController('testController', \Yii::$app), 'test');
         $panel = $this->getPanel('api-debug');
-        Yii::$app->request->bodyParams = ['panel'=>'api'];
-        Yii::$app->runAction('test/default/index');exit;
-
         $reflection = new \ReflectionClass($panel);
         $method = $reflection->getMethod('getSummary');
+        $method->invoke($panel);
         $match = preg_match('/default\/view&panel=api-debug$/', urldecode($panel->getUrl()));
         $this->assertTrue($match > 0);
-        var_dump($method->invoke($panel,['line'=>10]));
-        exit;
-        $method->setAccessible(true);
-        $this->assertEquals('tests\codeception\unit\TestController::test()', $method->invoke($panel));
-    }
-
+   }
 
     public function getPanel($identifier)
     {

@@ -54,16 +54,21 @@ class TestCase extends PHPUnit_Framework_TestCase
             ],
             'components' => [
                 'log' => [
-                    'traceLevel' => YII_DEBUG ? 3 : 0,
+                    'traceLevel' => 3,
                     'targets' => [
                         'class' => 'yii\log\FileTarget',
                         'levels' => ['info', 'error'],
-                        'categories' => ['yii\*']
+                        'categories' => ['yii\*'],
+                        'logVars' => ['_GET', '_POST', '_FILES', '_COOKIE', '_SESSION','_SERVER'],
+                        'logFile' => '@tests/runtime/myfile.log',
+                        'enableDatePrefix' => true,
+                        'maxFileSize' => 1024 * 1,
+                        'maxLogFiles' => 100,
                     ],
                 ],
             ],
             'modules' => [
-                'test' => [
+                'debug' => [
                     'class' => 'yii\debug\Module',
                     'allowedIPs' => ['127.0.0.1', '::1'],
                     'panels' => [
