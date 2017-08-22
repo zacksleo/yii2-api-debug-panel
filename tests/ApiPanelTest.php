@@ -26,16 +26,6 @@ class ApiPanelTest extends TestCase
 {
     public $id;
 
-    public function testSave()
-    {
-        Yii::$app->requestedAction = new InlineAction('test', new TestController('testController', \Yii::$app), 'test');
-        $panel = $this->getPanel('api-debug');
-        $reflection = new \ReflectionClass($panel);
-        Yii::$app->requestedParams = ['panel'=>'api','headers'=>['cookie'=>'111']];
-        $method = $reflection->getMethod('save');
-        $this->assertTrue(200 == $method->invoke($panel)['statusCode']);
-    }
-
     public function testGetName()
     {
         Yii::$app->requestedAction = new InlineAction('test', new TestController('testController', \Yii::$app), 'test');
