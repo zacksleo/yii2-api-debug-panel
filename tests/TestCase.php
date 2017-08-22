@@ -17,7 +17,7 @@ class TestCase extends PHPUnit_Framework_TestCase
     public function setUp()
     {
         parent::setUp();
-        // $this->mockWebApplication();
+        $this->mockWebApplication();
     }
 
     protected function tearDown()
@@ -55,9 +55,6 @@ class TestCase extends PHPUnit_Framework_TestCase
                 'test' => [
                     'class' => 'yii\debug\Module',
                     'allowedIPs' => ['127.0.0.1', '::1'],
-                    'panels' => [
-                        'views' => ['class' => 'zacksleo\yii2\debug\panels\ApiPanel'],
-                    ]
                 ]
             ]
         ], $config));
@@ -65,10 +62,7 @@ class TestCase extends PHPUnit_Framework_TestCase
 
     protected function getVendorPath()
     {
-        $vendor = (dirname(__DIR__)) . '/vendor';
-        if (!is_dir($vendor)) {
-            $vendor = dirname(dirname(dirname(dirname(__DIR__))));
-        }
+        $vendor = dirname(__DIR__) . '/vendor';
         return $vendor;
     }
 
