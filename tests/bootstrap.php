@@ -16,3 +16,5 @@ require_once(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
 Yii::setAlias('@tests', __DIR__);
 
 Yii::setAlias("@vendor/zacksleo", dirname(dirname(__DIR__)));
+
+yii::setAlias('@vendor/bower-asset', dirname(__DIR__).'/vendor/bower-asset');
