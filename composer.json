@@ -11,8 +11,9 @@
   ],
   "minimum-stability": "stable",
   "require": {
-    "yiisoft/yii2-debug": "2.0.6",
-    "phpunit/phpunit": "4.8.34"
+    "yiisoft/yii2-debug": "*",
+    "phpunit/phpunit": "4.8.34",
+    "fxp/composer-asset-plugin": "~1.0.0"
   },
   "autoload": {
     "psr-4": {
