@@ -17,4 +17,4 @@ Yii::setAlias('@tests', __DIR__);
 
 Yii::setAlias("@vendor/zacksleo", dirname(dirname(__DIR__)));
 
-yii::setAlias('@vendor/bower-asset', dirname(__DIR__).'/vendor/bower-asset');
+//yii::setAlias('@vendor/bower-asset', dirname(__DIR__).'/vendor/bower-asset');

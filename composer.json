@@ -14,20 +14,16 @@
     "yiisoft/yii2-debug": "2.0.6",
     "phpunit/phpunit": "4.8.34"
   },
-  "config": {
-    "process-timeout": 1800,
-    "vendor-dir": "vendor",
-    "fxp-asset": {
-      "installer-paths": {
-        "npm-asset-library": "vendor/npm",
-        "bower-asset-library": "vendor/bower"
-      }
-    }
-  },
   "autoload": {
     "psr-4": {
       "zacksleo\\yii2\\debug\\": "src",
       "zacksleo\\yii2\\debug\\tests\\": "tests"
     }
-  }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
 }
