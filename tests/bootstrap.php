@@ -16,5 +16,3 @@ require_once(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
 Yii::setAlias('@app', __DIR__);
 
 Yii::setAlias("@vendor/zacksleo/yii2-api-debug-panel/src", (dirname(__DIR__)).'/src');
-
-yii::setAlias('@vendor/bower-asset', dirname(__DIR__).'/vendor/bower-asset');
