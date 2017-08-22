@@ -18,6 +18,8 @@ class TestCase extends PHPUnit_Framework_TestCase
     {
         parent::setUp();
         $this->mockWebApplication();
+        $path = dirname(__DIR__).'/vendor/bin/assets';
+        if(!is_dir($path)) mkdir($path);
     }
 
     protected function tearDown()
@@ -58,6 +60,7 @@ class TestCase extends PHPUnit_Framework_TestCase
                 ]
             ]
         ], $config));
+
     }
 
     protected function getVendorPath()
