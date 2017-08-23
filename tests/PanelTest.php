@@ -10,6 +10,7 @@ namespace zacksleo\yii2\debug\tests;
 
 use yii\base\Action;
 use yii\base\InlineAction;
+use yii\debug\Module;
 use zacksleo\yii2\debug\panels\ApiPanel;
 
 class TestController extends \yii\web\Controller
