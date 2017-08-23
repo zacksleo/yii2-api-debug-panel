@@ -14,7 +14,6 @@ use zacksleo\yii2\debug\panels\ApiPanel;
 
 class TestController extends \yii\web\Controller
 {
-
 }
 
 class PanelTest extends TestCase
