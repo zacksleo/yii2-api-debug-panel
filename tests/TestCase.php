@@ -66,7 +66,7 @@ class TestCase extends PHPUnit_Framework_TestCase
                 ],
             ],
             'modules' => [
-                'test' => [
+                'debug' => [
                     'class' => 'yii\debug\Module',
                     'allowedIPs' => ['*'],
                 ]
