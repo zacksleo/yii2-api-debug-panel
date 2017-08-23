@@ -62,6 +62,10 @@ class TestCase extends PHPUnit_Framework_TestCase
                             'categories' => ['yii\*'],
                         ],
                     ]
+                ],
+                'request'=>[
+                    'class'=>'yii\web\Request',
+                    'cookieValidationKey' => 'SiMhYyhP2MZ_BAi321KfDHFk5uleQFa9',
                 ]
             ],
             'modules' => [

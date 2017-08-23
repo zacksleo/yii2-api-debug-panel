@@ -11,10 +11,12 @@ namespace zacksleo\yii2\debug\tests;
 
 use HttpRequest;
 use yii\base\Action;
+use yii\base\InlineAction;
 use yii\debug\Module;
+use yii\web\Request;
 use zacksleo\yii2\debug\panels\ApiPanel;
 
-class TestController extends \yii\base\Controller {}
+class TestController extends \yii\web\Controller {}
 
 class PanelTest extends TestCase
 {
@@ -40,7 +42,10 @@ class PanelTest extends TestCase
         $reflection = new \ReflectionClass($panel);
         $method = $reflection->getMethod('save');
         $method->setAccessible(true);
-        $res= $method->invoke($panel);
+        $method->invoke($panel);
+
+        $_SERVER['CONTENT_TYPE'] = "application/json";
+        \Yii::$app->requestedAction = new InlineAction('test', new TestController('testController', \Yii::$app), 'save');
         $panel = $this->getPanel();
         $res = $panel->save();
         $this->assertTrue(200 == $res['statusCode']);
