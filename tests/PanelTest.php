@@ -9,9 +9,12 @@
 namespace zacksleo\yii2\debug\tests;
 
 
+use HttpRequest;
+use yii\base\Action;
 use yii\debug\Module;
-use yii\debug\Panel;
 use zacksleo\yii2\debug\panels\ApiPanel;
+
+class TestController extends \yii\base\Controller {}
 
 class PanelTest extends TestCase
 {
@@ -32,6 +35,12 @@ class PanelTest extends TestCase
 
     public function testSave()
     {
+        \Yii::$app->requestedAction = new Action('test', new TestController('testController', \Yii::$app));
+        $panel = $this->getPanel();
+        $reflection = new \ReflectionClass($panel);
+        $method = $reflection->getMethod('save');
+        $method->setAccessible(true);
+        $res= $method->invoke($panel);
         $panel = $this->getPanel();
         $res = $panel->save();
         $this->assertTrue(200 == $res['statusCode']);

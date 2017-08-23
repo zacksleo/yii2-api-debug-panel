@@ -53,10 +53,21 @@ class TestCase extends PHPUnit_Framework_TestCase
                 '@bower' => '@vendor/bower-asset',
                 '@npm' => '@vendor/npm-asset',
             ],
+            'components'=>[
+                'log'=>[
+                    'targets'=>[
+                        'file' => [
+                            'class' => 'yii\log\FileTarget',
+                            'levels' => ['trace', 'info'],
+                            'categories' => ['yii\*'],
+                        ],
+                    ]
+                ]
+            ],
             'modules' => [
                 'test' => [
                     'class' => 'yii\debug\Module',
-                    'allowedIPs' => ['127.0.0.1', '::1'],
+                    'allowedIPs' => ['*'],
                 ]
             ]
         ], $config));
