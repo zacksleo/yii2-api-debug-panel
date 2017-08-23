@@ -8,19 +8,17 @@
 
 namespace zacksleo\yii2\debug\tests;
 
-
-use HttpRequest;
 use yii\base\Action;
 use yii\base\InlineAction;
-use yii\debug\Module;
-use yii\web\Request;
 use zacksleo\yii2\debug\panels\ApiPanel;
 
-class TestController extends \yii\web\Controller {}
+class TestController extends \yii\web\Controller
+{
+
+}
 
 class PanelTest extends TestCase
 {
-
     public function setUp()
     {
         parent::setUp();

@@ -18,8 +18,10 @@ class TestCase extends PHPUnit_Framework_TestCase
     {
         parent::setUp();
         $this->mockWebApplication();
-        $path = dirname(__DIR__).'/vendor/bin/assets';
-        if(!is_dir($path)) mkdir($path);
+        $path = dirname(__DIR__) . '/vendor/bin/assets';
+        if (!is_dir($path)) {
+            mkdir($path);
+        }
     }
 
     protected function tearDown()
@@ -53,9 +55,9 @@ class TestCase extends PHPUnit_Framework_TestCase
                 '@bower' => '@vendor/bower-asset',
                 '@npm' => '@vendor/npm-asset',
             ],
-            'components'=>[
-                'log'=>[
-                    'targets'=>[
+            'components' => [
+                'log' => [
+                    'targets' => [
                         'file' => [
                             'class' => 'yii\log\FileTarget',
                             'levels' => ['trace', 'info'],
@@ -63,10 +65,6 @@ class TestCase extends PHPUnit_Framework_TestCase
                         ],
                     ]
                 ],
-                'request'=>[
-                    'class'=>'yii\web\Request',
-                    'cookieValidationKey' => 'SiMhYyhP2MZ_BAi321KfDHFk5uleQFa9',
-                ]
             ],
             'modules' => [
                 'test' => [
@@ -75,7 +73,6 @@ class TestCase extends PHPUnit_Framework_TestCase
                 ]
             ]
         ], $config));
-
     }
 
     protected function getVendorPath()
