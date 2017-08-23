@@ -8,7 +8,6 @@
 
 namespace zacksleo\yii2\debug\tests;
 
-
 use PHPUnit_Framework_TestCase;
 use yii\helpers\ArrayHelper;
 
